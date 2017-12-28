@@ -1,17 +1,13 @@
-<html>
-    <head>
-        <title>Mealplanner</title>
-    </head>
-    <body>
-        <div>
-            <h1><a href="/">Family Server</a></h1>
-        </div>
-{% for mealweek in mealweeks %}
-    <div>
-        <p>published: {{ mealweek.published_date }}</p>
-        <h2><a href="">{{ mealweek.title }}</a></h2>
-        <p>{{ mealweek.text|linebreaksbr }}</p>
-    </div>
-{% endfor %}
-    </body>
-</html>
+{% extends 'mealplanner/base.html' %}
+
+{% block content %}
+	{% for mealweek in mealweeks %}
+	    <div class="mealweek">
+	        <div class="date">
+	            <p>published: {{ mealweek.published_date }}</p>
+	        </div>
+	        <h1><a href="">{{ mealweek.title }}</a></h1>
+	        <p>{{ mealweek.text|linebreaksbr }}</p>
+	    </div>
+	{% endfor %}
+{% endblock %}
