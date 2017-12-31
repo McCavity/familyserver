@@ -1,5 +1,6 @@
 *.pyc
 *~
+*.swp
 __pycache__
 familyserver-venv
 db.sqlite3
@@ -8,3 +9,4 @@ db.sqlite3
 .project
 .pydevproject
 logs
+geckodriver.log
