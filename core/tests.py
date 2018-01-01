@@ -1,7 +1,5 @@
 from django.test import TestCase
 
-from core.views import home_page
-
 # Create your tests here.
 class HomePageTest(TestCase):
 

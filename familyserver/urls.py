@@ -21,5 +21,6 @@ urlpatterns = [
     path('', core.views.home_page, name="home"),
     path('admin/', admin.site.urls),
     path('i18n/', include('django.conf.urls.i18n')),
+    path('lists/', include('lists.urls')),
     path('mealplanner/', include('mealplanner.urls')),
 ]
