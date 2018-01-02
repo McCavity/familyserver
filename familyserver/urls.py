@@ -16,11 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 import core.views
+from lists import views as lists_views
+from lists import urls as lists_urls
+from mealplanner import views as mealplanner_views
+from mealplanner import urls as mealplanner_urls
 
 urlpatterns = [
     path('', core.views.home_page, name="home"),
     path('admin/', admin.site.urls),
     path('i18n/', include('django.conf.urls.i18n')),
-    path('lists/', include('lists.urls')),
-    path('mealplanner/', include('mealplanner.urls')),
+    path('lists/', include(lists_urls)),
+    path('mealplanner/', include(mealplanner_urls)),
 ]
