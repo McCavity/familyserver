@@ -33,9 +33,11 @@ class NewVisitorTest(LiveServerTestCase):
         self.browser.get('%s%s' % (self.live_server_url, '/lists/'))
 
         # She notices the page title and header mention to-do lists
-        self.assertIn('Halfpap Family Server', self.browser.title)
+        self.assertIn('To-Do', self.browser.title)
+        #self.assertIn('Halfpap Family Server', self.browser.title)
         header_text = self.browser.find_element_by_tag_name('h1').text
-        self.assertIn('Halfpap Family Server', header_text)
+        self.assertIn('To-Do', header_text)
+        #self.assertIn('Halfpap Family Server', header_text)
 
         # She is invited to enter a to-do item straight away
         inputbox = self.browser.find_element_by_id('id_new_item')
