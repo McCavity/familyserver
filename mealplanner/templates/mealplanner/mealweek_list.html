@@ -1,6 +1,9 @@
-{% extends 'mealplanner/base.html' %}
+{% extends 'core/base.html' %}
 
-{% block content %}
+{% block header_text %}Overview{% endblock %}
+
+{% block comment %}
+<p>Meal plan for the current week:</p>
 	{% for mealweek in mealweeks %}
 	    <div class="mealweek">
 	        <div class="date">
