@@ -25,7 +25,7 @@ SECRET_KEY = '859ptgvs8g@wpqacpen%hhv2j+_kjto_1_1imqrnu8i6d^pxsn'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '[::1]', 'udtapp01', '192.168.178.65', '192.168.178.70']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '[::1]', 'udtapp01', '192.168.178.65', '192.168.178.70', 'hhalfpap-pc', '10.199.195.61']
 
 
 # Application definition

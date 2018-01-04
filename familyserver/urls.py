@@ -22,7 +22,7 @@ from mealplanner import views as mealplanner_views
 from mealplanner import urls as mealplanner_urls
 
 urlpatterns = [
-    path('', core.views.home_page, name="home"),
+    path('', core.views.home_page, name='core'),
     path('admin/', admin.site.urls),
     path('i18n/', include('django.conf.urls.i18n')),
     path('lists/', include(lists_urls)),
