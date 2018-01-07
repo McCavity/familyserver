@@ -1,13 +1,18 @@
 from django.test import TestCase
 from django.utils.html import escape
+from lists.forms import ItemForm
 from lists.models import Item, List
 
 # Create your tests here.
 class HomePageTest(TestCase):
 
-    def test_uses_lists_home_template(self):
+    def test_uses_home_template(self):
         response = self.client.get('/lists/')
         self.assertTemplateUsed(response, 'lists/home.html')
+
+    def test_home_page_uses_item_form(self):
+        response = self.client.get('/lists/')
+        self.assertIsInstance(response.context['form'], ItemForm)
 
 class ListViewTest(TestCase):
 
