@@ -11,5 +11,15 @@
   </head>
   <body>
     {% block body %}{% endblock %}
+
+    <script src="/static/js/jquery-3.2.1.min.js"></script>
+    <script src="/static/js/core.js"></script>
+
+    <script>
+$(document).ready(function () {
+  window.Familyserver.initialize();
+});
+    </script>
+
   </body>
 </html>
