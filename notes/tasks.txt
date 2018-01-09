@@ -1,0 +1,128 @@
+This file has been "borrowed" from [David Leonhard's git-technetium project](https://github.com/DrkSephy/git-technetium/blob/master/notes/tasks.txt) - need to update contents ;-)
+
+#####################################################################################
+#               Tasks / Road map (August 19th, 2014 ~ Present)                      #
+#####################################################################################
+
+With the foundation of the project at a stable, complete point, the following is a 
+list of tasks / features that are important. 
+
++ - - Gather commits per week per contributor from /contributors endpoint.........[ ]
+  |
+   - - Use data to build time series graph of these commits.......................[ ]
+  
+   
++ - - Use Issue data to build graphs of completion rate...........................[ ]
+
++ - - Set up User login system....................................................[ ]
+  |
+   - - Develop OAuth system for users  to login...................................[ ]
+  |
+   - - Integrate user/OAuth system with database..................................[ ]
+
+
+
+#####################################################################################
+#               Tasks / Road map (August 9th, 2014 ~ August 19th- 2014)             #
+#####################################################################################
+
+With the initial set of data-gathering tasks finished, it is time to improve them.
+The following limitatations exist:
+
+* Github's API only returns 30 datasets at once. The rest can be retrieved by 
+  pagination. 
+
+* How do we chain so many requests elegantly?
+
+* We need a way to get ALL of the data for an endpoint to give proper statistics. 
+
+* Task "Number of closed issues" needs to be done asynchronously. We need an algorithm
+  for handling multiple requests on a resource. The current bug is that when trying to
+  send a request for all issue data, another request gets sent before the first is
+  done, leading to an error with the headers. 
+
+
+As such, the following tasks are now available:
+
+Multiple Asynchronous Requests: [ Everyone ]
+--------------------------------------------
+The major goal here is to figure out how to loop over requests for a resource without
+encountering the "headers cannot be changed once set" bug. For example, given 50
+issues, we would normally like to iterate over each issue, send a request, and 
+gather the data. Due to the asynchronous behavior of node, multiple requests get sent
+before any of them finish, throwing the "headers" error. An algorithm to solve this
+is needed.
+
++ - - Algorithm for sending multiple requests in succession.....................[ X ]
+  |
+  + - Patch up the issues closed task by using the asynchronous algorithm.......[ X ]
+  |
+  + - Update express.js route for handling issues closed data...................[ X ]
+
+
+Getting all Data for Resource: [ Everyone ]
+-------------------------------------------
+Once the above task is finished, anyone who completed a task for gathering data has
+to go back and update their routes to get ALL data associated with that endpoint.
+This way, our results will reflect that of the entire repository, not just a subset
+of 30 datasets. 
+
++ - - Update Commits per Contributor route to get all data......................[ X ]
+|
++ - - Update Commit Comments per Contributor route to get all data..............[ X ]
+|
++ - - Update Issue Comments per Contributor route to get all data...............[ X ]
+|
++ - - Update Pull Requests per Contributor route to get all data................[ X ]
+|
++ - - Update Lines of Code per Contributor route to get all data................[ X ]
+|
++ - - Update Pull Request Comments per Contributor route to get all data........[ X ]
+|
++ - - Update Number of Issues Opened per Contributor route to get all data......[ X ]
+|
++ - - Update Number of Issues Assigned per Contributor route to get all data....[ X ]
+|
++ - - Update Number of Issues Closed per Contributor route to get all data......[ X ]
+|
++ - - Update Issues for Repository route to get all issue data..................[ X ]
+
+#####################################################################################
+#               Tasks / Road map (Project Inception ~ August 9th, 2014)             #
+#####################################################################################
+
+Project Setup: [ David ]
+------------------------
+This task involves setting up a basic full stack application.
+
+ + - - Add package.json dependencies............................................[ X ]
+ |
+ + - - Add bower dependencies...................................................[ X ]
+ |
+ + - - Create base server using Express.........................................[ X ]
+ |     |
+ |     + - - Create basic route.................................................[ X ]
+ |
+ + - - Create base AngularJS Application........................................[ X ]
+       |
+       + - - Create base application controller.................................[ X ]
+       |
+       + - - Create basic partials..............................................[ X ]
+
+
+Commits per Contributor: [ David ]
+----------------------------------
+This task involves creating a link that the client can click which
+in turn will query a repository of their choosing, returning a list
+of numbers representing the number of commits that each contributor
+within the requested repository has done.
+
++ - - Create server route for querying number of commits.........................[ X ]
+|     |
+|     + - - Parse data before sending to client..................................[ X ]
+|
++ - - Create controller for handling commit data on client.......................[ X ]
+|
++ - - Create factory for getting data on client from server......................[ X ]
+|
++ - - Create partial for displaying commit data on client........................[ X ]
