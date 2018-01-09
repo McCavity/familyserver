@@ -21,10 +21,12 @@ from lists import views as lists_views
 from lists import urls as lists_urls
 from mealplanner import views as mealplanner_views
 from mealplanner import urls as mealplanner_urls
+from core.accounts import urls as accounts_urls
+
 
 urlpatterns = [
-    #path('', core.views.home_page, name='core'),
     path('', include(core_urls)),
+    path('accounts/', include(accounts_urls, namespace='accounts')),
     path('admin/', admin.site.urls),
     path('i18n/', include('django.conf.urls.i18n')),
     path('lists/', include(lists_urls)),

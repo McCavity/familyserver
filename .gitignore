@@ -3,6 +3,7 @@
 *.swp
 __pycache__
 venv-familyserver
+familyserver-venv
 db.sqlite3
 /static
 .DS_Store
