@@ -5,7 +5,7 @@ from django.utils import timezone
 
 
 class MealWeek(models.Model):
-    meal_member = models.ForeignKey('auth.User', on_delete=models.DO_NOTHING)
+    meal_member = models.ForeignKey('accounts.User', on_delete=models.DO_NOTHING)
     #TODO: auto-set this from a function that starts with a wednesday and contains the beginning week's calendar week and the dates included (e.g. "Week 29 - July 3rd - July 9th"
     title = models.CharField(max_length=200)
     text = models.TextField()
