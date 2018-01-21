@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+from django.views.generic.base import RedirectView
 from core import views as core_views
 from accounts import urls as accounts_urls
 from core import urls as core_urls
@@ -26,6 +27,7 @@ from mealplanner import urls as mealplanner_urls
 urlpatterns = [
     #path('', core.views.home_page, name='core'),
     path('', include(core_urls)),
+    path('favicon.ico', RedirectView.as_view(url='/static/favicon/favicon.ico', permanent=False), name='favicon'),
     path('accounts/', include(accounts_urls)),
     path('admin/', admin.site.urls),
     path('i18n/', include('django.conf.urls.i18n')),
