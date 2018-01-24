@@ -13,7 +13,8 @@ class NewVisitorTest(FunctionalTest):
         self.assertIn('To-Do', self.browser.title)
         #self.assertIn('Halfpap Family Server', self.browser.title)
         header_text = self.browser.find_element_by_tag_name('h1').text
-        self.assertIn('To-Do', header_text)
+        #self.assertIn('To-Do', header_text)
+        self.assertIn('Halfpap Family Server', header_text)
         #self.assertIn('Halfpap Family Server', header_text)
 
         # She is invited to enter a to-do item straight away
